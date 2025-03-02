@@ -1,0 +1,59 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    margin: 0;
+}
+
+.clock {
+    text-align: center;
+    font-size: 3rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.time {
+    display: flex;
+    gap: 10px;
+}
+
+.flip {
+    display: inline-block;
+    padding: 10px 20px;
+    background: white;
+    color: black;
+    border-radius: 5px;
+    font-weight: bold;
+    min-width: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.flip::before {
+    content: attr(data-value);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-origin: bottom;
+    transform: rotateX(0);
+    animation: flipAnimation 0.5s ease-in-out;
+}
+
+@keyframes flipAnimation {
+    0% { transform: rotateX(0); }
+    100% { transform: rotateX(-90deg); }
+}
